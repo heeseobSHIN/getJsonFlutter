@@ -1,8 +1,10 @@
 import 'dart:convert';
 // ignore: unused_import
 import 'dart:math';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'detail.dart';
 
 void main() {
@@ -98,32 +100,22 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Container(),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(top : 8.0),
               child: Container(
                 child: Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        child: Row(
-                          children: [
-                            Text("NAME  :  "),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 100.0),
-                              child: SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.05,
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                child: TextField(
-                                  controller: myController,
-                                  decoration: const InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    labelText: 'name',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                    SizedBox( width: MediaQuery.of(context).size.width*0.08 ,),
+                    Text("NAME  :  "),
+                    SizedBox( width: MediaQuery.of(context).size.width*0.10 ,),
+                    SizedBox(
+                      height:
+                          MediaQuery.of(context).size.height * 0.05,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      child: TextField(
+                        controller: myController,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'name',
                         ),
                       ),
                     ),
@@ -132,55 +124,38 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10.0, left: 10.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Container(
                 child: Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        child: Row(
-                          children: [
-                            Text("Gender  :  "),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 100.0, right: 10.0),
-                              child: Text("Male"),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: Checkbox(
-                                activeColor: Colors.blue,
-                                value: _isCheckMen,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _isCheckMen = value!;
-                                    _isCheckWomen = false;
-                                  });
-                                },
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 100.0, right: 10.0),
-                              child: Text("Female"),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: Checkbox(
-                                activeColor: Colors.red,
-                                value: _isCheckWomen,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _isCheckWomen = value!;
-                                    _isCheckMen = false;
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                    SizedBox( width: MediaQuery.of(context).size.width*0.07 ,),
+                    Text("Gender  :  "),
+                    SizedBox( width: MediaQuery.of(context).size.width*0.10 ,),
+                    Text("Male"),
+                    SizedBox( width: MediaQuery.of(context).size.width*0.12 ,),
+                    
+                    Checkbox(
+                      activeColor: Colors.blue,
+                      value: _isCheckMen,
+                      onChanged: (value) {
+                        setState(() {
+                          _isCheckMen = value!;
+                          _isCheckWomen = false;
+                        });
+                      },
+                    ),
+                    SizedBox( width: MediaQuery.of(context).size.width*0.1 ,),
+                    Text("Female"),
+                    SizedBox( width: MediaQuery.of(context).size.width*0.12 ,),
+                    Checkbox(
+                      activeColor: Colors.red,
+                      value: _isCheckWomen,
+                      onChanged: (value) {
+                        setState(() {
+                          _isCheckWomen = value!;
+                          _isCheckMen = false;
+                        });
+                      },
                     ),
                   ],
                 ),
@@ -189,7 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.8,
+                  width: MediaQuery.of(context).size.width * 0.6,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.2,
