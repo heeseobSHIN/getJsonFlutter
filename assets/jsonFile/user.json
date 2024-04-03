@@ -1,0 +1,46 @@
+[
+    {
+      "name": "John Dou",
+      "Gender": "Male",
+      "age": "26",
+      "food" : "apple"
+      
+    },
+    {
+      "name": "sam",
+      "Gender": "Male",
+      "age": "20",
+      "food" : "banana"
+    },
+    {
+      "name": "alice",
+      "Gender": "Female",
+      "age": "22",
+      "food" : "grape"
+    },
+    {
+      "name": "elic",
+      "Gender": "Male",
+      "age": "20",
+      "food" : "orange"
+    },
+    {
+      "name": "he",
+      "Gender": "Male",
+      "age": "60",
+      "food" : "melon"
+    },
+    {
+      "name": "she",
+      "Gender": "Female",
+      "age": "40",
+      "food" : "watermelon"
+    },
+    {
+      "name": "sam",
+      "Gender": "Female",
+      "age": "20",
+      "food" : "banana"
+    }
+  ]
+
