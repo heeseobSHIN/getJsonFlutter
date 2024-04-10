@@ -1,10 +1,10 @@
 import 'dart:convert';
 // ignore: unused_import
 import 'dart:math';
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
+//import 'package:flutter/widgets.dart';
 import 'package:date_format_field/date_format_field.dart';
 import 'detail.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -138,6 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: MediaQuery.of(context).size.width * 0.2,
                       child: TextField(
+                        key: Key('NameField'),
                         controller: myController,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
@@ -166,6 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: MediaQuery.of(context).size.width * 0.12,
                     ),
                     Checkbox(
+                      key: Key('CheckboxFieldM'),
                       activeColor: Colors.blue,
                       value: _isCheckMen,
                       onChanged: (value) {
@@ -183,6 +185,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: MediaQuery.of(context).size.width * 0.12,
                     ),
                     Checkbox(
+                      key: Key('CheckboxFieldF'),
                       activeColor: Colors.red,
                       value: _isCheckWomen,
                       onChanged: (value) {
@@ -208,6 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Text('search'),
                       IconButton(
+                        key: Key('SearchBtn'),
                         onPressed: () {
                           setState(() {
                             UserName = myController.text;
@@ -263,8 +267,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               DataCell(Text(item['Gender'])),
                               DataCell(
                                 IconButton(
+                                  key: Key('DetailBtn ' + item['name']),
                                   icon: const Icon(Icons.settings),
                                   onPressed: () {
+                                    print(Key('DetailBtn' + item['name']));
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -289,12 +295,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     //Name,
                     TextField(
+                      key: Key('TableName'),
                       decoration: InputDecoration(
                         labelText: 'name',
                       ),
                     ),
                     //password
                     TextFormField(
+                      key: Key('TablePassword'),
                       obscureText: setPassword,
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -303,6 +311,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Form(
                       autovalidateMode: AutovalidateMode.always,
                       child: TextFormField(
+                        key: Key('TableEmail'),
                         decoration: InputDecoration(
                           labelText: 'email',
                         ),
@@ -310,6 +319,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     TextField(
+                      key: Key('TablePhone'),
                       decoration: InputDecoration(
                         labelText: 'phone',
                       ),
@@ -319,18 +329,19 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                     TextField(
+                      key: Key('TableNumber'),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(labelText: 'input number'),
                     ),
                     DateFormatField(
+                      key: Key('TableDate'),
                       type: DateFormatType.type4,
                       addCalendar: true,
                       onComplete: (date) {},
                     ),
                     DropdownButton(
-                      //4
+                      key: Key('DropdownButton'),
                       items: const [
-                        //5
                         DropdownMenuItem(
                           child: Text('1'),
                           value: '1',
@@ -344,16 +355,15 @@ class _MyHomePageState extends State<MyHomePage> {
                           value: '3',
                         ),
                       ],
-                      //6
                       onChanged: (String? value) {
                         setState(() {
                           isSelectedItem = value;
                         });
                       },
-                      //7
                       value: isSelectedItem,
                     ),
                     RadioListTile<String>(
+                      key: Key('RadioBtn1'),
                       title: Text('1'),
                       value: '1',
                       groupValue: select_radioBTN,
@@ -364,6 +374,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                     ),
                     RadioListTile<String>(
+                       key: Key('RadioBtn2'),
                       title: Text('2'),
                       value: '2',
                       groupValue: select_radioBTN,
@@ -374,6 +385,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                     ),
                     Checkbox(
+                       key: Key('TestCheckbox1'),
                       activeColor: Colors.white30,
                       value: checkedValue1,
                       onChanged: (value) {
@@ -383,6 +395,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                     ),
                     Checkbox(
+                      key: Key('TestCheckbox2'),
                       activeColor: Colors.white30,
                       value: checkedValue2,
                       onChanged: (value) {
@@ -392,32 +405,39 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                     ),
                     TextButton(
+                      key: Key('TestBtn1'),
                       onPressed: () {},
                       child: Text('button'),
                     ),
                     TextButton(
+                      key: Key('TestBtn2'),
                       onPressed: () {},
                       child: Text('button'),
                     ),
                     TextButton(
+                      key: Key('TestBtn3'),
                       onPressed: () {},
                       child: Text('request'),
                     ),
                     TextButton(
+                      key: Key('TestBtn4'),
                       onPressed: () {},
                       child: Text('reset'),
                     ),
                     TextField(
+                      key: Key('TestTextField'),
                       decoration: const InputDecoration(
                         label: Text('label'),
                       ),
                     ),
                     Icon(
+                      key: Key('Image'),
                       Icons.image,
                       size: 150,
                       color: Colors.grey,
                     ),
                     IconButton(
+                       key: Key('PopUpImage'),
                       onPressed: () {
                         myDialog(context);
                       },
@@ -427,6 +447,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Text('hyper link test'),
 
                     InkWell(
+                      key: Key('HyperLink'),
                       child: Text(
                         'ハイパーリンク!',
                         style: TextStyle(
@@ -454,6 +475,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         SizedBox(height: 10.0),
                         ElevatedButton.icon(
+                          key: Key('FileUploadBtn'),
                           onPressed: () {
                             fileSelect(context);
                           },
@@ -506,6 +528,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     TableCell(
                                       child: Center(
                                         child: ElevatedButton(
+                                          key: Key('TableBtn'),
                                           onPressed: () {},
                                           child: Text('ボタン'),
                                         ),
@@ -514,6 +537,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     TableCell(
                                       child: Center(
                                         child: InkWell(
+                                          key: Key('TableLink'),
                                           child: Text(
                                             'リンク',
                                             style: TextStyle(
